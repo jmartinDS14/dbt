@@ -42,3 +42,5 @@ models:
       +materialized: table
     lego:
       +materialized: table
+    library_loans:
+      +materialized: table
