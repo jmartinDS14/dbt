@@ -44,3 +44,9 @@ models:
       +materialized: table
     library_loans:
       +materialized: table
+    office_weather:
+      +materialized: view
+    
+
+on-run-start: 
+  - "{{ fetch_weather() }}"
