@@ -35,4 +35,15 @@ models:
       - name: member_id
         tests:
           - not_null
-          
+  - name: customer_withdrawals
+    columns:
+      - name: fee_applied
+        tests:
+          - positive_late_fees
+  - name: customers_with_late_fees
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: ref('solution')
+
+seeds:
+  - name: solution
